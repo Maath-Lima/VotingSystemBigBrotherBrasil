@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Publisher", "Publisher", "{7FA164FB-2BCF-4680-82AA-632682F99EA3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Subscriber", "Subscriber", "{032E0295-4FB2-4098-BD03-6D8C5067385B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotingSystemBigBrotherBrasil.Publisher.API", "src\VotingSystemBigBrotherBrasil.Publisher.API\VotingSystemBigBrotherBrasil.Publisher.API.csproj", "{424D3B3A-9386-4B10-9C32-E95F20A29BF3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotingSystemBigBrotherBrasil.Publisher.Models", "src\VotingSystemBigBrotherBrasil.Publisher.Domain\VotingSystemBigBrotherBrasil.Publisher.Models.csproj", "{98EF58D9-C68A-4C75-8679-743562CBAE49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotingSystemBigBrotherBrasil.Publisher.Services", "src\VotingSystemBigBrotherBrasil.Publisher.Services\VotingSystemBigBrotherBrasil.Publisher.Services.csproj", "{5D7201AA-1A64-4ABC-B607-DEB7D0450DB8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{424D3B3A-9386-4B10-9C32-E95F20A29BF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{424D3B3A-9386-4B10-9C32-E95F20A29BF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{424D3B3A-9386-4B10-9C32-E95F20A29BF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{424D3B3A-9386-4B10-9C32-E95F20A29BF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98EF58D9-C68A-4C75-8679-743562CBAE49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98EF58D9-C68A-4C75-8679-743562CBAE49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98EF58D9-C68A-4C75-8679-743562CBAE49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98EF58D9-C68A-4C75-8679-743562CBAE49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D7201AA-1A64-4ABC-B607-DEB7D0450DB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D7201AA-1A64-4ABC-B607-DEB7D0450DB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D7201AA-1A64-4ABC-B607-DEB7D0450DB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D7201AA-1A64-4ABC-B607-DEB7D0450DB8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{424D3B3A-9386-4B10-9C32-E95F20A29BF3} = {7FA164FB-2BCF-4680-82AA-632682F99EA3}
+		{98EF58D9-C68A-4C75-8679-743562CBAE49} = {7FA164FB-2BCF-4680-82AA-632682F99EA3}
+		{5D7201AA-1A64-4ABC-B607-DEB7D0450DB8} = {7FA164FB-2BCF-4680-82AA-632682F99EA3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CA1206EA-65D5-4741-AE07-25B1F64D9476}
+	EndGlobalSection
+EndGlobal
