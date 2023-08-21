@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace VotingSystemBigBrotherBrasil.Publisher.API.Config
 {

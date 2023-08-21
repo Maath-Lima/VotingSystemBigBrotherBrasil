@@ -1,4 +1,7 @@
-﻿namespace VotingSystemBigBrotherBrasil.Publisher.Models.Responses
+﻿using System;
+using System.Collections.Generic;
+
+namespace VotingSystemBigBrotherBrasil.Publisher.Models.Responses
 {
     public class BaseHttpResponse<T>
     {

@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.Options;
+using System.Linq;
 using VotingSystemBigBrotherBrasil.Publisher.Models.Settings;
 
 namespace VotingSystemBigBrotherBrasil.Publisher.Models.VoteModel
