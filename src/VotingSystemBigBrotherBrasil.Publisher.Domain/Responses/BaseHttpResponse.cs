@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace VotingSystemBigBrotherBrasil.Publisher.Models.Responses
@@ -7,6 +8,7 @@ namespace VotingSystemBigBrotherBrasil.Publisher.Models.Responses
     {
         public Guid TraceId { get; set; }
 
+        [JsonIgnore]
         public int Status { get; set; }
 
         public T Data { get; set; }
@@ -24,6 +26,7 @@ namespace VotingSystemBigBrotherBrasil.Publisher.Models.Responses
     {
         public Guid TraceId { get; set; }
 
+        [JsonIgnore]
         public int Status { get; set; }
 
         public object Data { get; set; }

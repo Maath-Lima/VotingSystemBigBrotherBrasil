@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using VotingSystemBigBrotherBrasil.Publisher.API.Config;
+using VotingSystemBigBrotherBrasil.Publisher.API.Middlewares;
 
 // ConfigureServices
 var builder = WebApplication.CreateBuilder(args);
@@ -23,10 +24,11 @@ builder.Services.AddApiConfig();
 
 var app = builder.Build();
 
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
+app.UseHttpsRedirection()
+    .UseAuthorization()
+    .UseMiddleware<ExceptionMiddleware>();
 
 app.MapControllers();
+
 
 app.Run();

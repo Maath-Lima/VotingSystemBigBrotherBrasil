@@ -38,11 +38,10 @@ namespace VotingSystemBigBrotherBrasil.Publisher.API.Controllers
             {
                 var response = new BaseHttpResponse()
                 {
-                    Status = StatusCodes.Status400BadRequest,
                     Erros = modelValidationResult.Errors.Select(e => e.ErrorMessage).ToList()
                 };
 
-                return StatusCode(response.Status, response);
+                return StatusCode(StatusCodes.Status400BadRequest, response);
             }
 
             _logger.Information("Teste log");
@@ -53,7 +52,6 @@ namespace VotingSystemBigBrotherBrasil.Publisher.API.Controllers
                 StatusCodes.Status200OK,
                 new BaseHttpResponse<string>()
                 {
-                    Status = StatusCodes.Status200OK,
                     Data = "Voto computado com sucesso!!"
                 });
         }
