@@ -21,7 +21,7 @@ namespace VotingSystemBigBrotherBrasil.Publisher.API.Config
             ResolveValidators(services);
             ResolveLog(services);
 
-            services.AddSingleton<RabbitMqPublisher>();
+            services.AddSingleton<RabbitMqPublisherService>();
         }
 
         private static void ResolveValidators(IServiceCollection services)

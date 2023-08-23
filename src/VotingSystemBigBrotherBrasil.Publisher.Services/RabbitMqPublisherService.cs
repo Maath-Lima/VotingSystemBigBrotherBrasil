@@ -5,12 +5,12 @@ using VotingSystemBigBrotherBrasil.Publisher.Models.Settings;
 
 namespace VotingSystemBigBrotherBrasil.Publisher.Services
 {
-    public class RabbitMqPublisher
+    public class RabbitMqPublisherService
     {
         private readonly IConnection _connection;
         private readonly IModel _channel;
 
-        public RabbitMqPublisher(IOptions<RabbitMqSettings> options)
+        public RabbitMqPublisherService(IOptions<RabbitMqSettings> options)
         {
             var rabbitMqSettings = options.Value;
 

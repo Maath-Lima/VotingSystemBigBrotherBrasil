@@ -16,12 +16,12 @@ namespace VotingSystemBigBrotherBrasil.Publisher.API.Controllers
     {
         private readonly IValidator<Vote> _validator;
 
-        private readonly RabbitMqPublisher _rabbitMqPublisher;
+        private readonly RabbitMqPublisherService _rabbitMqPublisher;
         private readonly ILogger _logger;
 
         public VoteReceiverController(
             IValidator<Vote> validator,
-            RabbitMqPublisher rabbitMqPublisher,
+            RabbitMqPublisherService rabbitMqPublisher,
             ILogger logger)
         {
             _validator = validator;
@@ -43,8 +43,6 @@ namespace VotingSystemBigBrotherBrasil.Publisher.API.Controllers
 
                 return StatusCode(StatusCodes.Status400BadRequest, response);
             }
-
-            _logger.Information("Teste log");
 
             _rabbitMqPublisher.PublishVote(vote.Name);
 
