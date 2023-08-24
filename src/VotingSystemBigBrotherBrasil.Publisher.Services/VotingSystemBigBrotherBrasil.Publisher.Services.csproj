@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\VotingSystemBigBrotherBrasil.Publisher.Domain\VotingSystemBigBrotherBrasil.Publisher.Models.csproj" />
   </ItemGroup>
 
