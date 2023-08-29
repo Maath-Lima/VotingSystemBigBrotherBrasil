@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\VotingSystemBigBrotherBrasil.Common\VotingSystemBigBrotherBrasil.Common.csproj" />
     <ProjectReference Include="..\VotingSystemBigBrotherBrasil.Publisher.Domain\VotingSystemBigBrotherBrasil.Publisher.Models.csproj" />
   </ItemGroup>
 

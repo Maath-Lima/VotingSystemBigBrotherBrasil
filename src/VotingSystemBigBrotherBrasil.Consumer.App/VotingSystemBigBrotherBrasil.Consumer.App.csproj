@@ -24,4 +24,9 @@
     <PackageReference Include="RabbitMQ.Client" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\VotingSystemBigBrotherBrasil.Common\VotingSystemBigBrotherBrasil.Common.csproj" />
+    <ProjectReference Include="..\VotingSystemBigBrotherBrasil.Publisher.Domain\VotingSystemBigBrotherBrasil.Publisher.Models.csproj" />
+  </ItemGroup>
+
 </Project>

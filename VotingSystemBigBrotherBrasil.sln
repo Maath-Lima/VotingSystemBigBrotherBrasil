@@ -13,7 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotingSystemBigBrotherBrasi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotingSystemBigBrotherBrasil.Publisher.Services", "src\VotingSystemBigBrotherBrasil.Publisher.Services\VotingSystemBigBrotherBrasil.Publisher.Services.csproj", "{5D7201AA-1A64-4ABC-B607-DEB7D0450DB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotingSystemBigBrotherBrasil.Consumer.App", "src\VotingSystemBigBrotherBrasil.Consumer.App\VotingSystemBigBrotherBrasil.Consumer.App.csproj", "{08395EF5-0161-4BF2-9A52-BBFAF4A0D18B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotingSystemBigBrotherBrasil.Consumer.App", "src\VotingSystemBigBrotherBrasil.Consumer.App\VotingSystemBigBrotherBrasil.Consumer.App.csproj", "{08395EF5-0161-4BF2-9A52-BBFAF4A0D18B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{FD1717FA-3CEC-4545-BCDB-45B6C1CE1761}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotingSystemBigBrotherBrasil.Common", "src\VotingSystemBigBrotherBrasil.Common\VotingSystemBigBrotherBrasil.Common.csproj", "{AEA4E317-51E0-4974-ACB6-2EB60615F7E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +41,10 @@ Global
 		{08395EF5-0161-4BF2-9A52-BBFAF4A0D18B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08395EF5-0161-4BF2-9A52-BBFAF4A0D18B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08395EF5-0161-4BF2-9A52-BBFAF4A0D18B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEA4E317-51E0-4974-ACB6-2EB60615F7E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEA4E317-51E0-4974-ACB6-2EB60615F7E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEA4E317-51E0-4974-ACB6-2EB60615F7E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEA4E317-51E0-4974-ACB6-2EB60615F7E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +54,7 @@ Global
 		{98EF58D9-C68A-4C75-8679-743562CBAE49} = {7FA164FB-2BCF-4680-82AA-632682F99EA3}
 		{5D7201AA-1A64-4ABC-B607-DEB7D0450DB8} = {7FA164FB-2BCF-4680-82AA-632682F99EA3}
 		{08395EF5-0161-4BF2-9A52-BBFAF4A0D18B} = {032E0295-4FB2-4098-BD03-6D8C5067385B}
+		{AEA4E317-51E0-4974-ACB6-2EB60615F7E8} = {FD1717FA-3CEC-4545-BCDB-45B6C1CE1761}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CA1206EA-65D5-4741-AE07-25B1F64D9476}
