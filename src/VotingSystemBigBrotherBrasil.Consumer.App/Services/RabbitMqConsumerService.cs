@@ -4,6 +4,7 @@ using System;
 using System.Text;
 using VotingSystemBigBrotherBrasil.Common;
 using VotingSystemBigBrotherBrasil.Consumer.App.Models.Settings;
+using VotingSystemBigBrotherBrasil.Consumer.Data;
 
 namespace VotingSystemBigBrotherBrasil.Consumer.App.Services
 {
@@ -11,8 +12,9 @@ namespace VotingSystemBigBrotherBrasil.Consumer.App.Services
     {
         private readonly IConnection _connection;
         private readonly IModel _channel;
+        private readonly VotingSystemContext _context;
 
-        public RabbitMqConsumerService(RabbitMqSettings rabbitMqSettings)
+        public RabbitMqConsumerService(RabbitMqSettings rabbitMqSettings, VotingSystemContext context)
         {
             try
             {
@@ -25,6 +27,8 @@ namespace VotingSystemBigBrotherBrasil.Consumer.App.Services
                 _channel = _connection.CreateModel();
 
                 _channel.QueueDeclare(RabbitMqConstants.QUEUE_NAME, RabbitMqConstants.QUEUE_DURABLE, RabbitMqConstants.QUEUE_EXCLUSIVE, RabbitMqConstants.QUEUE_AUTO_DELETE);
+
+                _context = context;
             }
             catch (Exception ex)
             {
@@ -52,6 +56,9 @@ namespace VotingSystemBigBrotherBrasil.Consumer.App.Services
 
             Console.WriteLine(" Press [enter] to exit.");
             Console.ReadLine();
+
+            _channel?.Dispose();
+            _connection?.Dispose();
         }
     }
 }
