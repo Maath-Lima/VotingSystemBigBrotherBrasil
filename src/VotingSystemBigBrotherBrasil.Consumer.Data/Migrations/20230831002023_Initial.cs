@@ -5,7 +5,7 @@
 namespace VotingSystemBigBrotherBrasil.Consumer.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialDatabase : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,7 +16,8 @@ namespace VotingSystemBigBrotherBrasil.Consumer.Data.Migrations
                 {
                     VoteId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ParticipantName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    ParticipantName = table.Column<string>(type: "varchar(50)", nullable: false),
+                    Votes = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

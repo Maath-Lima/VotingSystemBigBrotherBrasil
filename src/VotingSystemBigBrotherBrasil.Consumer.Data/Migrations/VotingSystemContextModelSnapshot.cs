@@ -31,8 +31,10 @@ namespace VotingSystemBigBrotherBrasil.Consumer.Data.Migrations
 
                     b.Property<string>("ParticipantName")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<int>("Votes")
+                        .HasColumnType("int");
 
                     b.HasKey("VoteId");
 
