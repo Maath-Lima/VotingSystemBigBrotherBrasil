@@ -22,6 +22,7 @@ namespace VotingSystemBigBrotherBrasil.Consumer.Data.Migrations
                                 Votes
                         FROM
                                 Votes
+                        WHERE ParticipantName = @ParticipantName
                     ) + 1
                 
                     UPDATE Votes SET Votes = @vote_count WHERE ParticipantName = @ParticipantName

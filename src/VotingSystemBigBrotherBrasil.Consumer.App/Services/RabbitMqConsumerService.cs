@@ -47,6 +47,10 @@ namespace VotingSystemBigBrotherBrasil.Consumer.App.Services
                 var message = Encoding.UTF8.GetString(body);
 
                 Console.WriteLine($"Received {message}");
+
+                var commit = _context.Commit(message);
+
+                if (commit) Console.WriteLine($"Received {message} in database");
             };
 
             _channel.BasicConsume(

@@ -43,7 +43,9 @@ namespace VotingSystemBigBrotherBrasil.Consumer.Data
                 return SaveChanges() > 0;
             }
 
-            return false;
+            Database.ExecuteSql($"InsertVote @ParticipantName={participantName}");
+
+            return true;
         }
     }
 }
