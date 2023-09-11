@@ -1,9 +1,7 @@
 ﻿using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Serilog;
 using System.Linq;
-using System.Threading.Tasks;
 using VotingSystemBigBrotherBrasil.Publisher.Models.Responses;
 using VotingSystemBigBrotherBrasil.Publisher.Models.VoteModel;
 using VotingSystemBigBrotherBrasil.Publisher.Services;
@@ -17,22 +15,19 @@ namespace VotingSystemBigBrotherBrasil.Publisher.API.Controllers
         private readonly IValidator<Vote> _validator;
 
         private readonly RabbitMqPublisherService _rabbitMqPublisher;
-        private readonly ILogger _logger;
 
         public VoteReceiverController(
             IValidator<Vote> validator,
-            RabbitMqPublisherService rabbitMqPublisher,
-            ILogger logger)
+            RabbitMqPublisherService rabbitMqPublisher)
         {
             _validator = validator;
             _rabbitMqPublisher = rabbitMqPublisher;
-            _logger = logger;
         }
 
         [HttpPost("vote")]
-        public async Task<IActionResult> VoteReceiverAsync(Vote vote)
+        public IActionResult VoteReceiverAsync(Vote vote)
         {
-            var modelValidationResult = await _validator.ValidateAsync(vote);
+            var modelValidationResult = _validator.Validate(vote);
 
             if (!modelValidationResult.IsValid)
             {
