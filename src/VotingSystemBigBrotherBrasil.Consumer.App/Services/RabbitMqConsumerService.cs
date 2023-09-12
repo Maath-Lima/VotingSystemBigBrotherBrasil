@@ -2,6 +2,7 @@
 using RabbitMQ.Client.Events;
 using System;
 using System.Text;
+using System.Threading;
 using VotingSystemBigBrotherBrasil.Common;
 using VotingSystemBigBrotherBrasil.Consumer.App.Models.Settings;
 using VotingSystemBigBrotherBrasil.Consumer.Data;
@@ -10,6 +11,8 @@ namespace VotingSystemBigBrotherBrasil.Consumer.App.Services
 {
     public class RabbitMqConsumerService
     {
+        private const int MILLISECONDS_VALUE = 1000;
+
         private readonly IConnection _connection;
         private readonly IModel _channel;
         private readonly VotingSystemContext _context;
@@ -48,14 +51,20 @@ namespace VotingSystemBigBrotherBrasil.Consumer.App.Services
 
                 Console.WriteLine($"Received {message}");
 
+                var elelapsedTime = message.Split(" ").Length;
+
+                Thread.Sleep(elelapsedTime * MILLISECONDS_VALUE);
+
                 var commit = _context.Commit(message);
 
                 if (commit) Console.WriteLine($"Received {message} in database");
+
+                _channel.BasicAck(ea.DeliveryTag, false);
             };
 
             _channel.BasicConsume(
                 queue: RabbitMqConstants.QUEUE_NAME,
-                autoAck: true,
+                autoAck: false,
                 consumer: consumer);
 
             Console.WriteLine(" Press [enter] to exit.");
