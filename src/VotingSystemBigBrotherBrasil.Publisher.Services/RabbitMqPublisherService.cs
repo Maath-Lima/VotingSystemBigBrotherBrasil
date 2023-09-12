@@ -28,7 +28,16 @@ namespace VotingSystemBigBrotherBrasil.Publisher.Services
         {
             _channel.QueueDeclare(RabbitMqConstants.QUEUE_NAME, RabbitMqConstants.QUEUE_DURABLE, RabbitMqConstants.QUEUE_EXCLUSIVE, RabbitMqConstants.QUEUE_AUTO_DELETE);
 
-            _channel.BasicPublish(string.Empty, RabbitMqConstants.QUEUE_NAME, body: Encoding.UTF8.GetBytes(name));
+            _channel.BasicPublish(string.Empty, RabbitMqConstants.QUEUE_NAME, ConfigQueueProperties(), Encoding.UTF8.GetBytes(name));
+        }
+
+        private IBasicProperties ConfigQueueProperties()
+        {
+            var properties = _channel.CreateBasicProperties();
+
+            properties.Persistent = true;
+
+            return properties;
         }
     }
 }
