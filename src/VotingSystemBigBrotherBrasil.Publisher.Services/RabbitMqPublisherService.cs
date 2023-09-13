@@ -34,7 +34,7 @@ namespace VotingSystemBigBrotherBrasil.Publisher.Services
         private IBasicProperties ConfigQueueProperties()
         {
             var properties = _channel.CreateBasicProperties();
-            //a
+
             properties.Persistent = true;
 
             return properties;
