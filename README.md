@@ -151,6 +151,14 @@ A timeout (30 minutes by default) is enforced on consumer delivery acknowledgeme
 
 Acknowledgement must be sent on the same channel that received the delivery. Attempts to acknowledge using a different channel will result in a channel-level protocol exception.
 
+It's a common mistake to miss the `BasicAck`. It's an easy error, but the consequences are serious. Messages will be redelivered when your client quits (which may look like random redelivery), but RabbitMQ will eat more and more memory as it won't be able to release any unacked messages.
+
+In order to debug this kind of mistake you can use `rabbitmqctl` to print the `messages_unacknowledged` field:
+
+```
+sudo rabbitmqctl list_queues name messages_ready messages_unacknowledged
+```
+
 ### Rejecting a message
 
 An application can indicate to the broker that message processing has failed
@@ -194,6 +202,16 @@ It’s possible for messages to contain only attributes and no payload
 Messages may be published as persistent, which makes the broker persist them to disk
 
 > Simply publishing a message to a durable exchange or the fact that the queue(s) it is routed to are durable doesn't make a message persistent: it all depends on persistence mode of the message itself
+> 
+
+## Fair Dispatch
+
+RabbitMQ just dispatches a message when the message enters the queue. It doesn't look at the number of unacknowledged messages for a consumer. It just blindly dispatches every n-th message to the n-th consumer.
+
+In order to change this behavior we can use the `BasicQos`method with the `prefetchCount = 1` setting. This tells RabbitMQ not to give more than one message to a worker at a time. Or, in other words, don't dispatch a new message to a worker until it has processed and acknowledged the previous one. Instead, it will dispatch it to the next worker that is not still busy.
+
+> **Note about queue size**
+If all the workers are busy, your queue can fill up. You will want to keep an eye on that, and maybe add more workers, or have some other strategy.
 > 
 
 ## AMQP Methods
