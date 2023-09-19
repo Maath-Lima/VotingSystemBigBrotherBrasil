@@ -29,7 +29,7 @@ namespace VotingSystemBigBrotherBrasil.Consumer.App.Services
                 _connection = factory.CreateConnection();
                 _channel = _connection.CreateModel();
 
-                _channel.QueueDeclare(RabbitMqConstants.QUEUE_NAME_PREFIX, RabbitMqConstants.QUEUE_DURABLE, RabbitMqConstants.QUEUE_EXCLUSIVE, RabbitMqConstants.QUEUE_AUTO_DELETE);
+                _channel.QueueDeclare(RabbitMqConstants.QUEUE_NAME, RabbitMqConstants.QUEUE_DURABLE, RabbitMqConstants.QUEUE_EXCLUSIVE, RabbitMqConstants.QUEUE_AUTO_DELETE);
 
                 _context = context;
             }
@@ -43,7 +43,7 @@ namespace VotingSystemBigBrotherBrasil.Consumer.App.Services
         {
             _channel.ExchangeDeclare(RabbitMqConstants.EXCHANGE_NAME, ExchangeType.Direct);
 
-            _channel.QueueBind(RabbitMqConstants.QUEUE_NAME_PREFIX, RabbitMqConstants.EXCHANGE_NAME, string.Empty);
+            _channel.QueueBind(RabbitMqConstants.QUEUE_NAME, RabbitMqConstants.EXCHANGE_NAME, string.Empty);
 
             var consumer = new EventingBasicConsumer(_channel);
 
@@ -67,7 +67,7 @@ namespace VotingSystemBigBrotherBrasil.Consumer.App.Services
             };
 
             _channel.BasicConsume(
-                queue: RabbitMqConstants.QUEUE_NAME_PREFIX,
+                queue: RabbitMqConstants.QUEUE_NAME,
                 autoAck: false,
                 consumer: consumer);
 

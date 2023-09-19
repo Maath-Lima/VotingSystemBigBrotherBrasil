@@ -1,8 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
-using System.Linq;
 using System.Text;
-using System.Threading.Channels;
 using VotingSystemBigBrotherBrasil.Common;
 using VotingSystemBigBrotherBrasil.Publisher.Models.Settings;
 
@@ -28,15 +26,11 @@ namespace VotingSystemBigBrotherBrasil.Publisher.Services
 
         public void PublishVote(string name)
         {
-            var queueNameSuffix = string.Join('_', name.Split(' '));
-
-            var queueName = $"{RabbitMqConstants.QUEUE_NAME_PREFIX}-{queueNameSuffix}";
-
-            _channel.QueueDeclare(queueName, RabbitMqConstants.QUEUE_DURABLE, RabbitMqConstants.QUEUE_EXCLUSIVE, RabbitMqConstants.QUEUE_AUTO_DELETE);
+            _channel.QueueDeclare(RabbitMqConstants.QUEUE_NAME, RabbitMqConstants.QUEUE_DURABLE, RabbitMqConstants.QUEUE_EXCLUSIVE, RabbitMqConstants.QUEUE_AUTO_DELETE);
 
             _channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);
 
-            _channel.BasicPublish(ConfigQueueExchange(), queueNameSuffix, ConfigQueueProperties(), Encoding.UTF8.GetBytes(name));
+            _channel.BasicPublish(ConfigQueueExchange(), RabbitMqConstants.QUEUE_NAME, ConfigQueueProperties(), Encoding.UTF8.GetBytes(name));
         }
 
         private IBasicProperties ConfigQueueProperties()
